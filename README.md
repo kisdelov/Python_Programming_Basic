@@ -1,2 +1,2 @@
 # study
-my first solo project
+just study..
