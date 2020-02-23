@@ -22,9 +22,6 @@ t = tuple(b)
 print('t - ', type(t), t)
 print('t - ', t[0], t[1:3])
 
-
-
-
 # 리스트 변환(set -> list)
 l = list(c)
 l2 = list(e)
