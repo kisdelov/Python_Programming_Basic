@@ -43,14 +43,62 @@ for n in names:
     print('You are :', n)
 
 # 예제 2
+lotto_numbers = [11, 19, 21, 28, 36, 37]
+
+for n in lotto_numbers:
+    print("Current number :", n)
+
+# 예제 3
+word = "Beautiful"
+
+for s in word:
+    print('word :', s)
+
+# 예제 4
+my_info = {
+    "name": 'Lee',
+    "Age": 33,
+    "Citiy": "Seoul"
+}
+
+for key in my_info:
+    print('key :', my_info.get(key), my_info[key])
+
+for v in my_info.values():
+    print('value :', v)
 
 
 
+# 예제 5
+name = 'FineAppLE'
+
+for n in name:
+    if n.isupper():
+        print(n)
+    else:
+        print(n.upper())
 
 
+# break
+numbers = [14, 3, 4, 7, 10, 24, 17, 2, 33, 15, 34, 36, 38]
 
+for num in numbers:
+    if num == 34:
+        print('Found : 34!')
+        break
+    else:
+        print('Not found :', num)
 
+# continue
 
+lt = ["1", 2, 5, True, 4.3, complex(4)]
+
+for v in lt:
+    if type(v) is bool: # 자료형 대조일 때 is 사용
+        continue
+    print("current type :", v, type(v))
+    print("multiply by 2", v * 3)
+    print(True * 3) # true == 1
 
 
 
