@@ -100,12 +100,30 @@ for v in lt:
     print("multiply by 2", v * 3)
     print(True * 3) # true == 1
 
+# for - else
+numbers = [14, 3, 4, 7, 10, 24, 17, 2, 33, 15, 34, 36, 38]
 
+for num in numbers:
+    if num == 24:
+        print("Found : 24")
+        break
+else:
+    print("Not found : 24")
+# for문에서 전부 반복했을 경우에 마지막으로 else문을 수행
 
+# 구구단
 
-
-
-
+for i in range(2,10):
+    for j in range(1,10):
+        print('{:4d}'.format(i*j), end='')
+    print()
+        
+# 변환 예제
+name2 = 'Aceman'
+print('Reversed', reversed(name2))
+print('List', list(reversed(name2)))
+print('Tuple', tuple(reversed(name2)))
+print('Set', set(reversed(name2))) # 순서X, 중복X
 
 
 
