@@ -82,7 +82,7 @@ while True:
 '''
 
 # 예제 8
-a = ['foo', 'bar', 'baz', 'qux']
+a = ['LoL', 'is', 'very', 'good']
 
 while True:
     if not a:
