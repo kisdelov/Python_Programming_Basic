@@ -5,7 +5,7 @@
 
 # 함수 정의 방법
 # def function_name(parameter):
-#   code
+#   code 궁금해
 
 # 예제 1
 
