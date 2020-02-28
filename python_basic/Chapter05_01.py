@@ -84,3 +84,30 @@ def func_mu3(i):
 d = func_mu3(30)
 
 print(type(d), d, d.get('v1'), d.items(), d.keys())
+
+# 중요
+# *args, **kwargs
+
+# *args(언팩킹)
+
+
+def args_func(*args):  # 매개변수 명 자유
+    for i, v in enumerate(args):
+        print("Result : {}".format(i), v)
+    print('-----')
+
+args_func('Lee')
+args_func('Lee', 'Park')
+args_func('Lee', 'Park', 'Kim')
+
+# **kwargs(언팩킹)
+def kwargs_func(**kwargs): # 매개변수 명 자유
+    for v in kwargs.keys():
+        print("{}".format(v, kwargs[v]))
+    print('-----')
+
+kwargs_func(name1='Lee')
+
+
+
+
