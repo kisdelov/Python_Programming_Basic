@@ -9,7 +9,7 @@
 
 # 예제 1
 
-class Dog: #object 상속
+class Dog1: #object 상속
     # 클래스 속성
     species = "Siba" 
 
@@ -19,12 +19,12 @@ class Dog: #object 상속
         self.age = age
 
 # 클래스 정보
-print(Dog)
+print(Dog1)
 
 # 인스턴스화 = 모조리 다르다
-a = Dog("may", 5)
-b = Dog("baby", 4)
-c = Dog("may", 5)
+a = Dog1("may", 5)
+b = Dog1("baby", 4)
+c = Dog1("may", 5)
 
 # 비교
 print(a == b, id(a), id(b))
@@ -39,11 +39,91 @@ print('{} is {} and {} is {}'.format(a.name, a.age, b.name, b.age))
 if a.species == "Siba":
     print('{0} is a {1}'.format(a.name, a.species))
 
-print(Dog.species)
+print(Dog1.species)
 print(a.species)
 print(b.species)
 
 # 예제 2
+# Self의 이해
+class SelfTest:
+    def func1():
+        print('Func1 called')
+    def func2(self):
+        print(id(self))
+        print('Func2 called')
+
+f = SelfTest()
+
+# print(dir(f))
+print(id(f))
+# f.func1() 예외
+f.func2()
+SelfTest.func1()
+# SelfTest.func2() 예외
+SelfTest.func2(f)
+
+# 예제 3 
+# 클래스 변수, 인스턴스 변수
+class Warehouse:
+    # 클래스 변수 = 0
+    stock_num = 0 # 재고
+
+    def __init__(self, name):
+        # 인스턴스 변수
+        self.name = name
+        Warehouse.stock_num += 1
+
+    def __del__(self):
+        Warehouse.stock_num -= 1
+
+user1 = Warehouse('Lee')
+user2 = Warehouse('Cho')
+
+print(Warehouse.stock_num)
+# Warehouse.stock_num = 50
+print(user1.name)
+print(user2.name)
+print(user1.__dict__)
+print(user2.__dict__)
+print('before', Warehouse.__dict__)
+print('>>>', user1.stock_num)
+
+del user1
+print('after', Warehouse.__dict__)
+
+# 예제 4
+class Dog: #object 상속
+    # 클래스 속성
+    species = "Siba" 
+
+    # 초기화/인스턴스 속성
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def info(self):
+        return '{} is {} years old'.format(self.name, self.age)
+    
+    def speak(self, sound):
+        return "{} says {}".format(self.name, sound)
+
+# 인스턴스 생성
+C = Dog('July', 4)
+D = Dog('Marry', 10)
+# 메소드 호출
+print(C.info())
+# 메소드 호출
+print(C.speak('왈왈'))
+print(D.speak('캬컄'))
+
+
+
+
+
+
+
+
+
 
 
 
