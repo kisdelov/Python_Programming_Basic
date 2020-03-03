@@ -46,8 +46,8 @@ print(b.species)
 # 예제 2
 # Self의 이해
 class SelfTest:
-    def func1():
-        print('Func1 called')
+    # def func1():
+    #     print('Func1 called')
     def func2(self):
         print(id(self))
         print('Func2 called')
