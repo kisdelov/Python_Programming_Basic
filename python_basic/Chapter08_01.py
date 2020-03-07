@@ -6,7 +6,6 @@
 
 # 절대값
 # abs()
-
 print(abs(-3))
 
 # all, any : iterable 요소 검사(참, 거짓)
@@ -52,17 +51,34 @@ def conv_abs(x):
 print(list(map(conv_abs, [1, -3, 2, 0, -5, 6])))
 print(list(map(lambda x: abs(x), [1, -3, 2, 0, -5, 6])))
 
+# pow : 제곱값 반환
+print(pow(2, 10))
 
+# range : 반복가능한 객체(Iterable) 반환
+print(range(1,10,2))
+print(list(range(1,10,2)))
+print(list(range(0,-15,-1)))
 
+# round : 반올림
+print(round(6.524125, 2))
+print(round(5.6))
 
+# sorted : 반복가능한 객체(Iterable) 정렬 후 반환 
+print(sorted([6, 7, 8, 1, 2, 5, 6]))
+a = sorted([6, 7, 8, 1, 2, 5, 6])
+print(a)
+print(sorted(['P', 'Y', 'T', 'H', 'O', 'N']))
 
+# sum : 반복가능한 객체(Iterable) 합 반환
+print(sum([6, 7, 8, 9, 10]))
+print(sum(range(1, 101)))
 
+# type : 자료형 확인
+print(type(3))
+print(type({}))
+print(type(()))
+print(type([]))
 
-
-
-
-
-
-
-
-
+# zip : 반복가능한 객체(iterable)의 요소를 묶어서 반환
+print(list(zip([10, 20, 30], [40, 50, 60])))
+print(type(list(zip([10, 20, 30], [40, 50, 60]))[0]))
