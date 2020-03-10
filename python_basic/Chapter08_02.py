@@ -83,8 +83,9 @@ print(c)
 # webbrowser : 본인 OS의 웹 브라우저 실행
 
 import webbrowser
-webbrowser.open("fmkorea.com")
-webbrowser.open_new("fmkorea.com")
+webbrowser.open("naver.com")
+webbrowser.open_new("naver.com")
 
 
 
+ 
