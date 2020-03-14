@@ -1,2 +1,2 @@
-I love python
-I love python2
+I love Python
+I love Python2
