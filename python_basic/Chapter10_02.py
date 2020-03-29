@@ -1,13 +1,19 @@
 # Chapter10-01
 # Hangman(행맨) 미니 게임 제작(1)
-# 기본 프로그램 제작 및 테스트
+# 프로그램 완성 및 최종 테스트
 
 import time
+# CSV 처리
+import csv
+# 랜덤
+import random
+# 사운드 처리
+import winsound
 
 # 처음 인사
 name = input("What is your name? ")
 
-print("Hi,",name, "Time to play hangman game!")
+print("Hi,", name, "Time to play hangman game!")
 
 print()
 
@@ -17,8 +23,24 @@ print("Start Loading...")
 print()
 time.sleep(0.5)
 
+# CSV 단어 리스트
+words = []
+
+# 문제 CSV 파일 로드
+with open('./python_basic/resource/word_list.csv', 'r') as f:
+    reader = csv.reader(f)
+    # Header Skip
+    next(reader)
+    for c in reader:
+        words.append(c)
+
+# 리스트 섞기
+random.shuffle(words)
+
+q = random.choice(words)
+
 # 정답 단어
-word = "secret"
+word = q[0].strip()
 
 # 추측 단어
 guesses = ''
@@ -46,18 +68,21 @@ while turns > 0:
     if failed == 0:
         print()
         print()
+        # 성공 사운드
+        winsound.PlaySound('./python_basic/sound/good.wav', winsound.SND_FILENAME)
         print('Congratulation! The Guesses is correct.')
-        # while 구문 중단je
+        # while 구문 중단
         break
     print()
 
     # 추측 단어 문자 단위 입력
     print()
+    print('Hint : {}'. format(q[1].strip()))
     guess = input("guess a character. ")
 
     # 단어 더하기
     guesses += guess
-    
+
     # 정답 단어에 추측한 문자가 포함되어 있지 않으면
     if guess not in word:
         # 기회 횟수 감소
@@ -68,5 +93,7 @@ while turns > 0:
         print("You have", turns, "more guesses!")
 
         if turns == 0:
+            # 성공 사운드
+            winsound.PlaySound('./python_basic/sound/bad.wav', winsound.SND_FILENAME)
             # 실패 메시지
             print("You hangman game failed. Bye!")
