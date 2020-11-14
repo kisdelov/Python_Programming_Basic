@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "C:\\Users\\정정정정\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+    "python.linting.enabled": false,
+    "python.testing.pytestArgs": [
+        "python_basic"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
+}

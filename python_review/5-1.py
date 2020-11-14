@@ -33,4 +33,25 @@ original_list = ['a', 'b', 'c']
 assigned_list = original_list # 동일 시퀀스 할당
 copied_list = original_list[:] # 시퀀스 복사
 
-# 통계 함수부터 시작
+# 통계 함수
+print(sum(number_list))
+print(min(number_list))
+print(max(number_list))
+
+def mirror(sequence):
+    sequence2 = sequence[3::-1]
+    print(sequence + sequence2)
+
+mirror(number_list)
+
+# 시퀀스 조작 메서드
+# numbers = [6, 7, 8, 9, 10]
+# number_list.append(numbers)
+# number_list.insert(1, numbers)
+# number_list.extend(numbers)
+# number_list += [1,2,3]
+# number_list.pop()
+# number_list.remove(1)
+# print(number_list)
+# number_list.clear()
+# print(number_list)
