@@ -76,6 +76,7 @@ print(morning.strftime('%H:%M'))
 print(now.strftime('%m월 %d일 %H시 %M분'))
 
 from datetime import timedelta
+print()
 print(timedelta(weeks=3, days=5))
 print(timedelta(days=2, hours=3, minutes=30))
 
