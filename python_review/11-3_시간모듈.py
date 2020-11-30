@@ -82,7 +82,10 @@ print(timedelta(days=2, hours=3, minutes=30))
 
 now = datetime.now()
 after_1000h = timedelta(hours=1000)
+TURN_INTERVAL = timedelta(seconds=0.3)
+print(TURN_INTERVAL/2, '끝')
 print(now + after_1000h)
+
 
 birthday = date(1996, 5, 23)
 print(date.today() - birthday)

@@ -15,6 +15,7 @@ BLOCK_SIZE = 20
 
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("뱀피하기")
 
 RED = 255, 0, 0        # 적색:   적 255, 녹   0, 청   0
 GREEN = 0, 255, 0      # 녹색:   적   0, 녹 255, 청   0
@@ -74,7 +75,16 @@ class Snake:
 
     def turn(self, direction):
         """뱀의 방향을 바꾼다."""
-        self.direction = direction
+        if self.direction == 'north' and direction == 'south':
+            self.direction = 'east'
+        elif self.direction == 'south' and direction == 'north':
+            self.direction = 'west'
+        elif self.direction == 'east' and direction == 'west':
+            self.direction = 'north'
+        elif self.direction == 'west' and direction == 'east':
+            self.direction = 'south'
+        else:
+            self.direction = direction
 
     def grow(self):
         """뱀이 한 칸 자라나게 한다."""
@@ -110,7 +120,7 @@ class GameBoard:
     height = 20
     x = range(0, width)
     y = range(0, height)
-    # box = [(self.x[i], self.y[j]) for i in range(0, height) for j in range(0, width)]
+    # box = [(x[i], y[j]) for i in y for j in x]
     box = []
     
     def __init__(self):
@@ -128,10 +138,13 @@ class GameBoard:
     def put_new_apple(self):
         """게임판에 새 사과를 놓는다."""
         self.apple = Apple((random.randint(0, 19), random.randint(0, 19)))
+        if len(self.snake.positions) == self.width * self.height:
+            exit()
         for position in self.snake.positions:
             if self.apple.position == position:
                 self.put_new_apple()
                 break
+
 
     def process_turn(self):
         """게임을 한 차례 진행한다."""
@@ -140,12 +153,14 @@ class GameBoard:
         if self.snake.positions[0] == self.apple.position:
             self.snake.grow()
             self.put_new_apple()
+            return 'faster'
 
         if self.snake.positions[0] in self.snake.positions[1:]:
             raise SnakeCollisionException()
 
         if self.snake.positions[0] not in self.box:
             raise SnakeCollisionException()
+        
 
 game_board = GameBoard()
 TURN_INTERVAL = timedelta(seconds=0.3)
@@ -162,7 +177,8 @@ while True:
 
     if TURN_INTERVAL < datetime.now() - last_turn_time:
         try:
-            game_board.process_turn()
+            if game_board.process_turn() == 'faster':
+                TURN_INTERVAL /= 2
         except SnakeCollisionException:
             exit()
         last_turn_time = datetime.now()
